@@ -16,15 +16,14 @@ def wordcount(filename):
             word1 = word.lower().strip("',.!?-#$%^&();:_")
             wordcount[word1] = wordcount.get(word1, 0) + 1
     
-    for word, value in wordcount.items():
+
+    for word, value in sorted(wordcount.items()):
         print("{} {}".format(word,value))
 
 
     filename.close()
 
  
-    
-
 wordcount(filename)
 
 
