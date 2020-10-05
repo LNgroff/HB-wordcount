@@ -11,24 +11,35 @@ filename = sys.argv[1]
 def wordcount(filename):
     
     with open(filename) as doc:
-        document = doc.read().replace("\n", " ")
+        document = doc.read().replace("\n", " ").strip(" ")
 
     new_list = []
     split_doc = document.split(" ")
 
     for word in split_doc:
-        if word == " ":
-            continue
         word1 = word.lower().strip("',.!?-#$%^&();:_") #word stripped of special char
         new_list.append(word1)
         
     counted = Counter(new_list)
+    counted_items = counted.items()
+    word_key = lambda x: (-x[1], x[0])
+    
+    # sorted_word_count = sorted(counted.items(), key=lambda x: (x[1], x[0])
+    # changing what comes after x will change how it is sorted
+    
+    print(counted_items)
+    
+    sorted_word_count = sorted(counted_items, key = word_key)
+   
+    print(sorted_word_count)
 
-
-    print(sorted(counted.items(), key=lambda x: x[1]))
-        #prints function as tuples ascending
+    for tuple in sorted_word_count:
+        print(tuple[0], tuple[1])
+    
+    # print(sorted(counted_items, key=lambda x: (-x[1], x[0]))
+        #prints function as tuples ascending values  
     # print(sorted(counted.items(), key=lambda x: x[1], reverse=True))
-        # prints function as tuples descending
+        # prints function as tuples descending values
 
 
     # print(Counter(sorted(new_list)))
