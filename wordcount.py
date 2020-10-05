@@ -24,19 +24,11 @@ def wordcount(filename):
         
     counted = Counter(new_list)
 
+
     print(sorted(counted.items(), key=lambda x: x[1]))
         #prints function as tuples ascending
     # print(sorted(counted.items(), key=lambda x: x[1], reverse=True))
         # prints function as tuples descending
-
-"""def ascending_order(filename):
-    dictionary = wordcount(filename)
-
-    result = {k: v for k, v in sorted(dictionary.items(), key=lambda item: item[1])}
-
-    print(result)
-    """
-    
 
 
     # print(Counter(sorted(new_list)))
