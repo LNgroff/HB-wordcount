@@ -1,12 +1,19 @@
 # put your code here.
-filename = open("test.txt")
+
+import sys
+
+# filename = sys.argv[1]   # first real argument
+# for melon_data in open(filename):
+#     print(melon_data)
+filename = sys.argv[1]
 
 def wordcount(filename):
-    # poem = open(filename)
-    #file = open("twain.txt")
+    
+    document = open(filename)
+    
 
     wordcount = {}
-    for line in filename:
+    for line in document:
         words = line.rstrip().split(" ")
         
         set_words = set(words)
@@ -20,8 +27,6 @@ def wordcount(filename):
     for word, value in sorted(wordcount.items()):
         print("{} {}".format(word,value))
 
-
-    filename.close()
 
  
 wordcount(filename)
