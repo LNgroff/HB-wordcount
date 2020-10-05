@@ -13,7 +13,8 @@ def wordcount(filename):
         keys = list(set_words)
 
         for word in words:
-            wordcount[word] = wordcount.get(word, 0) + 1
+            word1 = word.lower().strip("',.!?-#$%^&();:_")
+            wordcount[word1] = wordcount.get(word1, 0) + 1
     
     for word, value in wordcount.items():
         print("{} {}".format(word,value))
@@ -27,5 +28,4 @@ def wordcount(filename):
 wordcount(filename)
 
 
-special_char = ["." , "," , "?", "!" , ";", ":", "'"]
 
